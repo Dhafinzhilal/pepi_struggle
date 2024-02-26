@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://ch5mfk6gkhhpc"]
+
+[ext_resource type="Texture2D" uid="uid://b6f11xavin4g7" path="res://assets/entities/player/Stand.png" id="1_7co6t"]
+[ext_resource type="Script" path="res://script/playerchar/player.gd" id="1_tg0wo"]
+[ext_resource type="Texture2D" uid="uid://dagrcpmm3d0un" path="res://assets/entities/player/Stand1.png" id="2_inrps"]
+[ext_resource type="Texture2D" uid="uid://873djsxeas07" path="res://assets/entities/player/Fall.png" id="4_topq2"]
+[ext_resource type="Texture2D" uid="uid://buv2to3g011i" path="res://assets/entities/player/Jump.png" id="5_l1dn8"]
+[ext_resource type="Texture2D" uid="uid://cdbnbvnipmqys" path="res://assets/entities/player/Walk.png" id="6_ydjso"]
+[ext_resource type="Texture2D" uid="uid://beyimc6xagryk" path="res://assets/entities/player/Walk2.png" id="7_eghwy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osf56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7co6t")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_inrps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_topq2")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l1dn8")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ydjso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eghwy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aot7x"]
+radius = 32.5
+height = 145.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_tg0wo")
+
+[node name="character" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_osf56")
+
+[node name="hitbox_player" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CapsuleShape2D_aot7x")
+
+[node name="Dash_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://cad3gxc56se0m"]
+
+[ext_resource type="PackedScene" uid="uid://do7dnfqeadsnn" path="res://editor/items/Entity/item_lilsyaiton.tscn" id="1_1qfn5"]
+[ext_resource type="Texture2D" uid="uid://cwd3iq75tsrx6" path="res://assets/placeholder/32bit/Grass Dirt.png" id="2_c1fue"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_73ra0"]
+
+[node name="item_select" type="CanvasLayer"]
+offset = Vector2(720, 380)
+transform = Transform2D(1, 0, 0, 1, 720, 380)
+follow_viewport_scale = 0.001
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -721.0
+offset_bottom = -379.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tile" type="TabBar" parent="Control/TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Tile"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Tile/ScrollContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="item_grass" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1qfn5")]
+layout_mode = 2
+texture = ExtResource("2_c1fue")
+stretch_mode = 3
+this_scene = null
+tile = true
+
+[node name="Entities" type="TabBar" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Entities"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Entities/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Entities/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="item_lilsyaiton" parent="Control/TabContainer/Entities/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1qfn5")]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="PanelLayoutTile" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 280.0
+offset_right = -720.0
+offset_bottom = -617.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Control/PanelLayoutTile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -15.5
+offset_right = 57.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 0)
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Control/PanelLayoutTile/VBoxContainer"]
+layout_mode = 2
+text = "Layer Tile
+"
+label_settings = SubResource("LabelSettings_73ra0")
+
+[node name="LayerOption" type="OptionButton" parent="Control/PanelLayoutTile/VBoxContainer"]
+layout_mode = 2
+item_count = 5
+selected = 0
+allow_reselect = true
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4

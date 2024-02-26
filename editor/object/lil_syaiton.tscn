@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ge782ucu1gf3"]
+
+[ext_resource type="PackedScene" uid="uid://c744vm461bxuu" path="res://editor/object/entity.tscn" id="1_bs3yw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pciia"]
+
+[node name="LilSyaiton" instance=ExtResource("1_bs3yw")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_pciia")

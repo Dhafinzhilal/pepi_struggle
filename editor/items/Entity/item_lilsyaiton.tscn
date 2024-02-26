@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://do7dnfqeadsnn"]
+
+[ext_resource type="PackedScene" uid="uid://300jk2ml8u1p" path="res://editor/item_texture.tscn" id="1_booea"]
+[ext_resource type="Texture2D" uid="uid://cgspce5uni4wk" path="res://assets/entities/lilsyaiton/lilsyaitan.png" id="2_klbrt"]
+[ext_resource type="PackedScene" uid="uid://ge782ucu1gf3" path="res://editor/object/lil_syaiton.tscn" id="3_pn0x5"]
+
+[node name="item_lilsyaiton" instance=ExtResource("1_booea")]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_klbrt")
+this_scene = ExtResource("3_pn0x5")

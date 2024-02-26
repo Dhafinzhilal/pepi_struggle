@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c744vm461bxuu"]
+
+[ext_resource type="Texture2D" uid="uid://cgspce5uni4wk" path="res://assets/entities/lilsyaiton/lilsyaitan.png" id="1_85rx7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx4s8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_85rx7")
+}],
+"loop": true,
+"name": &"lilsyaiton",
+"speed": 5.0
+}]
+
+[node name="Entity" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tx4s8")
+animation = &"lilsyaiton"
