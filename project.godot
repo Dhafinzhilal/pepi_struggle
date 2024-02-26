@@ -22,7 +22,6 @@ Global="*res://script/autoloads/global.gd"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -82,6 +81,8 @@ shift={
 
 [rendering]
 
+textures/canvas_textures/default_texture_repeat=1
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)
 viewport/transparent_background=true
 
 [xr]
