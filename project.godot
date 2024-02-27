@@ -81,8 +81,6 @@ shift={
 
 [rendering]
 
-textures/canvas_textures/default_texture_repeat=1
-viewport/transparent_background=true
 renderer/defaults/default_clear_color=Color(1, 1, 1, 1)
 
 [xr]

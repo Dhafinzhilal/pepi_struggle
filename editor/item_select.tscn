@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cad3gxc56se0m"]
+[gd_scene load_steps=5 format=3 uid="uid://cad3gxc56se0m"]
 
 [ext_resource type="PackedScene" uid="uid://do7dnfqeadsnn" path="res://editor/items/Entity/item_lilsyaiton.tscn" id="1_1qfn5"]
 [ext_resource type="Texture2D" uid="uid://cwd3iq75tsrx6" path="res://assets/placeholder/32bit/Grass Dirt.png" id="2_c1fue"]
+[ext_resource type="Script" path="res://editor/script/LayerOption.gd" id="3_tfre7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73ra0"]
 
@@ -105,6 +106,7 @@ label_settings = SubResource("LabelSettings_73ra0")
 
 [node name="LayerOption" type="OptionButton" parent="Control/PanelLayoutTile/VBoxContainer"]
 layout_mode = 2
+toggle_mode = false
 item_count = 5
 selected = 0
 allow_reselect = true
@@ -118,3 +120,6 @@ popup/item_3/text = "3"
 popup/item_3/id = 3
 popup/item_4/text = "4"
 popup/item_4/id = 4
+script = ExtResource("3_tfre7")
+
+[connection signal="item_selected" from="Control/PanelLayoutTile/VBoxContainer/LayerOption" to="Control/PanelLayoutTile/VBoxContainer/LayerOption" method="_on_LayerOption_item_selected"]
