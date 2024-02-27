@@ -30,6 +30,8 @@ func _process(delta):
 			var new_item = current_item.instantiate()
 			level.add_child(new_item)
 			new_item.global_position = get_global_mouse_position()
+		if can_place and Input.is_action_pressed("ctrl+left"):
+			pass
 	#if the object is tile
 	else:
 		if can_place and Input.is_action_pressed("mb_left"):

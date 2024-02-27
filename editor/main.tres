@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://d3wie2ar27uq8"]
+[gd_resource type="TileSet" load_steps=28 format=3 uid="uid://d3wie2ar27uq8"]
 
 [ext_resource type="Texture2D" uid="uid://cwd3iq75tsrx6" path="res://assets/placeholder/32bit/Grass Dirt.png" id="1_vydlu"]
 [ext_resource type="Texture2D" uid="uid://4j5hixuw1jot" path="res://assets/placeholder/32bit/Dirt.png" id="2_qvm1b"]
 [ext_resource type="PackedScene" uid="uid://br5svd66cwdxu" path="res://editor/items/Collide/square.tscn" id="3_4jewy"]
 [ext_resource type="Texture2D" uid="uid://m7c5164ybu1f" path="res://assets/placeholder/32bit/ladder.png" id="3_m5qbs"]
 [ext_resource type="Texture2D" uid="uid://d1non2bixj2i8" path="res://assets/placeholder/32bit/stone2.png" id="4_ccawn"]
+[ext_resource type="Texture2D" uid="uid://7iwsn1au5s6u" path="res://assets/placeholder/32bit/blackdirt.png" id="4_t25lp"]
 [ext_resource type="Texture2D" uid="uid://dix7041jysply" path="res://assets/placeholder/32bit/Stone.png" id="6_6hm4r"]
 [ext_resource type="Texture2D" uid="uid://bds3563dnel8m" path="res://assets/placeholder/32bit/vines.png" id="7_38c5o"]
 [ext_resource type="Texture2D" uid="uid://ofti16hhem7y" path="res://assets/placeholder/32bit/Wall.png" id="8_7f6my"]
@@ -17,6 +18,9 @@ tile_data = PackedInt32Array(0, 0, 0)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_go5yd"]
 tile_data = PackedInt32Array(0, 1, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_78tyg"]
+tile_data = PackedInt32Array(65536, 8, 0, 1, 8, 0, 65537, 9, 0, 2, 9, 0, 65538, 9, 0, 65539, 8, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_832ko"]
 resource_name = "grass"
@@ -33,6 +37,12 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vrq84"]
 resource_name = "ladder"
 texture = ExtResource("3_m5qbs")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kbou"]
+resource_name = "blackdirt"
+texture = ExtResource("4_t25lp")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
@@ -95,5 +105,7 @@ sources/7 = SubResource("TileSetAtlasSource_6prss")
 sources/8 = SubResource("TileSetAtlasSource_5n8pw")
 sources/9 = SubResource("TileSetAtlasSource_parkx")
 sources/10 = SubResource("TileSetAtlasSource_vrq84")
+sources/11 = SubResource("TileSetAtlasSource_3kbou")
 pattern_0 = SubResource("TileMapPattern_v1x25")
 pattern_1 = SubResource("TileMapPattern_go5yd")
+pattern_2 = SubResource("TileMapPattern_78tyg")

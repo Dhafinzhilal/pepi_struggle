@@ -4,6 +4,7 @@ extends Node2D
 @onready var playerchar: CharacterBody2D = get_node("player")
 
 
+
 func _ready():
 	pass
 
