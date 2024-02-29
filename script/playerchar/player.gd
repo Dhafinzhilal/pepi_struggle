@@ -8,6 +8,7 @@ class_name player
 @export var dash_speed : float = 1200.0
 @export var health : int = 3
 @export var gravity : float = 1000.0
+
 var accel : float = 25.0
 
 @onready var timer_dash = $Dash_cooldown
@@ -18,6 +19,10 @@ var current_jump : int = 0
 
 var can_dash = true
 var dashdir : Vector2
+
+var init = false
+var spawnpoint = Vector2(0,0)
+var player_point = false
 
 #function input
 func input():
@@ -63,9 +68,6 @@ func input():
 		velocity = dashdir.normalized() * dash_speed
 		can_dash = false
 	
-	#attack
-
-	
 	#misc
 	if !is_on_floor() and velocity.y > 0:
 		$character.play("fall")
@@ -89,24 +91,23 @@ func input():
 
 #function physic
 func _physics_process(delta):
-	input()
-	if not is_on_floor():
-		velocity.y += gravity * delta
 	
-	if health <= 0:
-		get_tree().reload_current_scene()
-	
-	
-	move_and_slide()
+	if !init:
+		spawnpoint = global_position
+		init = true
+		
+	if !Global.playing:
+		global_position = spawnpoint
+		velocity = Vector2(0,0)
+	else:
+		input()
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		move_and_slide()
 	
 #func detection
 func take_damage():
 	health -= 1
-
-func _on_timer_timeout():
-	can_dash = true
-	
-
 
 #func animation
 func turn_1():
@@ -120,10 +121,6 @@ func turn_2():
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property($item_hand,"rotation_degrees",0,0.1)
-
-
-
-
 
 func _on_dash_cooldown_timeout():
 	can_dash = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbgdjxuw0afg4"]
+
+[ext_resource type="PackedScene" uid="uid://300jk2ml8u1p" path="res://editor/item_texture.tscn" id="1_f7juc"]
+[ext_resource type="Texture2D" uid="uid://bed47jmlmyta7" path="res://assets/placeholder/32bit/collide.png" id="2_iudia"]
+
+[node name="item_collideblock" instance=ExtResource("1_f7juc")]
+texture = ExtResource("2_iudia")
+tile = true
+tile_id = 3

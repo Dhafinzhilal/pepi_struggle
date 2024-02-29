@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://djwpu40nkqi7s"]
+
+[ext_resource type="PackedScene" uid="uid://300jk2ml8u1p" path="res://editor/item_texture.tscn" id="1_8ci63"]
+[ext_resource type="Texture2D" uid="uid://cwd3iq75tsrx6" path="res://assets/placeholder/32bit/Grass Dirt.png" id="2_amqy2"]
+
+[node name="item_grass" instance=ExtResource("1_8ci63")]
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("2_amqy2")
+stretch_mode = 3
+tile = true

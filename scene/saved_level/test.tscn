@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://we3dwou31b1v"]
+
+[ext_resource type="TileSet" uid="uid://d3wie2ar27uq8" path="res://editor/main.tres" id="1_vb0p0"]
+[ext_resource type="PackedScene" uid="uid://ch5mfk6gkhhpc" path="res://scene/entity/player/player.tscn" id="2_kctxy"]
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_vb0p0")
+format = 2
+layer_0/tile_data = PackedInt32Array(196602, 1, 0, 262138, 1, 0, 262137, 1, 0, 262136, 1, 0, 262135, 1, 0, 327669, 1, 0, 327667, 1, 0, 327664, 1, 0, 327663, 1, 0, 327665, 1, 0, 393203, 1, 0, 393206, 1, 0, 458745, 1, 0, 458747, 1, 0, 458749, 1, 0, 458751, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 393213, 1, 0, 196593, 1, 0, 131053, 1, 0, 65514, 1, 0, 65513, 1, 0, 65520, 1, 0, 65525, 1, 0, 65527, 1, 0, 131062, 1, 0, 131060, 1, 0, 131057, 1, 0, 131056, 1, 0, 131059, 1, 0, 196599, 1, 0, 327670, 1, 0, 327671, 1, 0, 327674, 1, 0, 393214, 1, 0, 393215, 1, 0, 458741, 1, 0, 393207, 1, 0, 393209, 1, 0, 393211, 1, 0, 393212, 1, 0, 393210, 1, 0, 393208, 1, 0, 327675, 1, 0)
+layer_1/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array()
+layer_3/tile_data = PackedInt32Array()
+layer_4/tile_data = PackedInt32Array()
+
+[node name="player" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(-177, -108)
+scale = Vector2(0.995552, 2.92334)
+
+[node name="@CharacterBody2D@103" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(-64, -88)
+
+[node name="_CharacterBody2D_104" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(73, -87)
+
+[node name="@CharacterBody2D@105" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(169, -155)
+
+[node name="@CharacterBody2D@106" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(44, -231)
+
+[node name="@CharacterBody2D@107" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(-218, -228)
+
+[node name="@CharacterBody2D@108" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(-255, -52)
+
+[node name="@CharacterBody2D@109" parent="." instance=ExtResource("2_kctxy")]
+position = Vector2(-10, 10)

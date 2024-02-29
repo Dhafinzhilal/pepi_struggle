@@ -25,4 +25,7 @@ func _item_clicked(event):
 				Global.place_tile = true
 				Global.current_tile = tile_id
 				cursor_sprite.texture = texture
-
+				if tile_id == 3:
+					Global.is_tile_scene = 1
+				else:
+					Global.is_tile_scene = 0

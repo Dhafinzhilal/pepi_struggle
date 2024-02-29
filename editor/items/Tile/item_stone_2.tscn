@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjd8uorap61vw"]
+
+[ext_resource type="PackedScene" uid="uid://300jk2ml8u1p" path="res://editor/item_texture.tscn" id="1_tspbh"]
+[ext_resource type="Texture2D" uid="uid://dix7041jysply" path="res://assets/placeholder/32bit/Stone.png" id="2_6ybfy"]
+
+[node name="item_stone2" instance=ExtResource("1_tspbh")]
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("2_6ybfy")
+stretch_mode = 3
+tile = true
+tile_id = 4

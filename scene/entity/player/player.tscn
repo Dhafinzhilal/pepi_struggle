@@ -54,6 +54,8 @@ radius = 32.5
 height = 145.0
 
 [node name="player" type="CharacterBody2D"]
+light_mask = 6
+visibility_layer = 7
 script = ExtResource("1_tg0wo")
 
 [node name="character" type="AnimatedSprite2D" parent="."]

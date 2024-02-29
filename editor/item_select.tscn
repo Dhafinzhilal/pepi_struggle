@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cad3gxc56se0m"]
+[gd_scene load_steps=9 format=3 uid="uid://cad3gxc56se0m"]
 
-[ext_resource type="PackedScene" uid="uid://do7dnfqeadsnn" path="res://editor/items/Entity/item_lilsyaiton.tscn" id="1_1qfn5"]
-[ext_resource type="Texture2D" uid="uid://cwd3iq75tsrx6" path="res://assets/placeholder/32bit/Grass Dirt.png" id="2_c1fue"]
+[ext_resource type="Script" path="res://editor/script/tabcon.gd" id="1_2y7f3"]
+[ext_resource type="PackedScene" uid="uid://cljbd7ce83yb6" path="res://editor/items/Tile/item_dirt.tscn" id="2_dblje"]
+[ext_resource type="PackedScene" uid="uid://dbgdjxuw0afg4" path="res://editor/items/Tile/item_collideblock.tscn" id="3_4fkgd"]
 [ext_resource type="Script" path="res://editor/script/LayerOption.gd" id="3_tfre7"]
+[ext_resource type="PackedScene" uid="uid://cjyc840q8w8eg" path="res://editor/items/Tile/item_stone.tscn" id="4_vci57"]
+[ext_resource type="PackedScene" uid="uid://coex7f70o0ecu" path="res://editor/items/Trigger/item_spawnpoint.tscn" id="5_e8q61"]
+[ext_resource type="PackedScene" uid="uid://do7dnfqeadsnn" path="res://editor/items/Entity/item_lilsyaiton.tscn" id="5_glyu7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73ra0"]
 
@@ -18,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2y7f3")
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 1
@@ -38,38 +43,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Tile/ScrollContainer"]
-custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="item_grass" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1qfn5")]
+[node name="item_dirt" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_dblje")]
 layout_mode = 2
-texture = ExtResource("2_c1fue")
-stretch_mode = 3
-this_scene = null
-tile = true
 
-[node name="Entities" type="TabBar" parent="Control/TabContainer"]
+[node name="item_collideblock" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4fkgd")]
+layout_mode = 2
+
+[node name="item_stone" parent="Control/TabContainer/Tile/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_vci57")]
+layout_mode = 2
+
+[node name="Deco & Entity" type="TabBar" parent="Control/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Entities"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Deco & Entity"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Entities/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Deco & Entity/ScrollContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Entities/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Deco & Entity/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="item_lilsyaiton" parent="Control/TabContainer/Entities/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1qfn5")]
+[node name="item_lilsyaiton" parent="Control/TabContainer/Deco & Entity/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_glyu7")]
 layout_mode = 2
-stretch_mode = 2
+
+[node name="Trigger" type="TabBar" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Trigger"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Trigger/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/Trigger/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="item_spawnpoint" parent="Control/TabContainer/Trigger/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_e8q61")]
+layout_mode = 2
 
 [node name="PanelLayoutTile" type="Panel" parent="Control"]
 layout_mode = 1
