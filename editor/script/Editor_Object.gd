@@ -15,9 +15,9 @@ var do_save = false
 @onready var tile_map : TileMap = level.get_node("TileMap")
 @onready var popup_filesystem: FileDialog = get_node("/root/main/item_select/FileDialog")
 
+var level_children = []
 var current_item
 var layertile_id :int
-var is_delete_scene = 0
 
 
 func _ready():
@@ -33,13 +33,14 @@ func _process(delta):
 		#this condition for placing item into level
 		if !Global.filesystem_shown:
 			if current_item != null and can_place and Input.is_action_just_pressed("mb_left"):
+				
 				var new_item = current_item.instantiate()
 				level.add_child(new_item)
 				new_item.owner = level
 				new_item.global_position = get_global_mouse_position()
-			if can_place and Input.is_action_pressed("ctrl+left"):
+			if Input.is_action_just_pressed("mb_right"):
 				pass
-	else:	
+	else:
 		if !Global.filesystem_shown:
 			if can_place and Input.is_action_pressed("mb_left"):
 				#this condition for placing tile into level
@@ -60,14 +61,18 @@ func _process(delta):
 	if Input.is_action_just_pressed("ctrl+s"):
 		Global.filesystem_shown = true
 		do_save = true
+		@warning_ignore("int_as_enum_without_cast")
 		popup_filesystem.file_mode = 4
 		popup_filesystem.show()
 	
 	if Input.is_action_just_pressed("ctrl+l"):
 		Global.filesystem_shown = true
 		do_save = true
+		@warning_ignore("int_as_enum_without_cast")
 		popup_filesystem.file_mode = 0
 		popup_filesystem.show()
+		
+	get_level_children()
 
 func place_tile():
 	global_position = get_global_mouse_position()
@@ -111,6 +116,12 @@ func load_level():
 	get_parent().add_child(this_level)
 	tile_map = get_parent().get_node("Level/TileMap")
 	level = this_level
+	
+func get_level_children():
+	for child in level.get_children():
+		if child.get_class() not in ["Camera2D", "TileMap"]:
+			level_children.append(child)
+	return level_children
 
 func _on_file_dialog_confirmed():
 	if popup_filesystem.title == "Save a Level":

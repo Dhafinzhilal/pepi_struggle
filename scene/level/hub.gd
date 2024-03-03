@@ -6,7 +6,7 @@ extends Node2D
 
 
 func _ready():
-	pass
+	Global.playing = true
 
 
 func _process(delta):
