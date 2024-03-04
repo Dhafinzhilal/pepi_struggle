@@ -33,7 +33,6 @@ func _process(delta):
 		#this condition for placing item into level
 		if !Global.filesystem_shown:
 			if current_item != null and can_place and Input.is_action_just_pressed("mb_left"):
-				
 				var new_item = current_item.instantiate()
 				level.add_child(new_item)
 				new_item.owner = level
