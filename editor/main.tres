@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=28 format=3 uid="uid://d3wie2ar27uq8"]
+[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://d3wie2ar27uq8"]
 
 [ext_resource type="Texture2D" uid="uid://cwd3iq75tsrx6" path="res://assets/placeholder/32bit/Grass Dirt.png" id="1_vydlu"]
 [ext_resource type="Texture2D" uid="uid://4j5hixuw1jot" path="res://assets/placeholder/32bit/Dirt.png" id="2_qvm1b"]
@@ -56,11 +56,15 @@ texture_region_size = Vector2i(32, 32)
 resource_name = "block"
 scenes/1/scene = ExtResource("3_4jewy")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kyh00"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcwct"]
 resource_name = "stone2"
 texture = ExtResource("6_6hm4r")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_kyh00")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csdrv"]
 resource_name = "vine"
@@ -94,6 +98,7 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
 sources/0 = SubResource("TileSetAtlasSource_832ko")
 sources/1 = SubResource("TileSetAtlasSource_qisux")
 sources/3 = SubResource("TileSetScenesCollectionSource_mtbg5")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhed0ibw2ejfk"]
+[gd_scene load_steps=16 format=3 uid="uid://bhed0ibw2ejfk"]
 
 [ext_resource type="Script" path="res://script/menu/menu.gd" id="1_8ajuc"]
 [ext_resource type="FontFile" uid="uid://dv7knpgvw8dei" path="res://font/Gabarito-VariableFont_wght.ttf" id="1_jcaff"]
 [ext_resource type="Texture2D" uid="uid://4ug5f0s2fdu0" path="res://assets/icon/MusicNotes.svg" id="3_mlkpi"]
 [ext_resource type="PackedScene" uid="uid://fr7nqgkiqknc" path="res://scene/ui/volume_slider.tscn" id="4_l0o1e"]
 [ext_resource type="Texture2D" uid="uid://dufpnngkkcupp" path="res://assets/icon/SfxNote.svg" id="5_0nogq"]
+[ext_resource type="AudioStream" uid="uid://b6qsifmndjt1k" path="res://sound/music/theleafturnthemself.mp3" id="6_246kq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tg7c5"]
 content_margin_left = 0.0
@@ -117,6 +118,7 @@ text = "Fullscreen
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b8bw7")
 action_mode = 0
 
@@ -203,6 +205,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_y03po")
 text = "Exit Games"
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_246kq")
 bus = &"music"
 
 [node name="sound_effect" type="AudioStreamPlayer2D" parent="."]

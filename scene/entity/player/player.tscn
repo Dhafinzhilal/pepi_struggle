@@ -69,7 +69,7 @@ shape = SubResource("CapsuleShape2D_aot7x")
 
 [node name="Dash_cooldown" type="Timer" parent="."]
 process_callback = 0
-wait_time = 1.4
+wait_time = 1.2
 autostart = true
 
 [connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

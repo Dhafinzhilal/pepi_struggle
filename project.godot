@@ -21,6 +21,7 @@ Global="*res://script/autoloads/global.gd"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -102,6 +103,7 @@ esc={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true
 renderer/defaults/default_clear_color=Color(1, 1, 1, 1)
 
 [xr]

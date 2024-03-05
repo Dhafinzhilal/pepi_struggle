@@ -4,20 +4,24 @@ var tween : Tween
 
 func _ready():
 	Global.in_menu = false
+	$CanvasLayer/PanelMenu.visible = false
 	$CanvasLayer/PanelMenu.position.y = 680
 	pass # Replace with function body.
 
 func _process(delta):
 	if !Global.in_menu:
 		close_menu()
+		$CanvasLayer/PanelMenu/Settings/FullScreen/CheckButton.disabled = true
 	else:
 		open_menu()
+		$CanvasLayer/PanelMenu/Settings/FullScreen/CheckButton.disabled = false
 	
 	if Input.is_action_just_pressed("esc"):
 		Global.in_menu = !Global.in_menu
 	pass
 
 func open_menu():
+	$CanvasLayer/PanelMenu.visible = true
 	get_tree().paused = true
 	if tween:
 		tween.kill()
