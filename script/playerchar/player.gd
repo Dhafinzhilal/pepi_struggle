@@ -91,7 +91,6 @@ func input():
 
 #function physic
 func _physics_process(delta):
-	
 	if !init:
 		spawnpoint = global_position
 		init = true
@@ -104,10 +103,6 @@ func _physics_process(delta):
 		if not is_on_floor():
 			velocity.y += gravity * delta
 		move_and_slide()
-	
-#func detection
-func take_damage():
-	health -= 1
 
 #func animation
 func turn_1():
@@ -124,4 +119,3 @@ func turn_2():
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
-

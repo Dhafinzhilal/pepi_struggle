@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvtbb4mlo17qa"]
+[gd_scene load_steps=19 format=3 uid="uid://dvtbb4mlo17qa"]
 
 [ext_resource type="PackedScene" uid="uid://ch5mfk6gkhhpc" path="res://scene/entity/player/player.tscn" id="1_ekjvp"]
 [ext_resource type="Script" path="res://scene/level/hub.gd" id="1_yxv8c"]
 [ext_resource type="TileSet" uid="uid://d3wie2ar27uq8" path="res://editor/main.tres" id="2_7goak"]
 [ext_resource type="Texture2D" uid="uid://swlfdi2n7vmp" path="res://assets/bg/awesomeCavePixelArt.png" id="3_kcbwg"]
 [ext_resource type="Texture2D" uid="uid://b36m2xci3aey3" path="res://assets/placeholder/Computer2.png" id="3_ua6xu"]
+[ext_resource type="Texture2D" uid="uid://hr73sgvhh62e" path="res://assets/placeholder/Computer1.png" id="4_67d6c"]
 [ext_resource type="PackedScene" uid="uid://bhed0ibw2ejfk" path="res://scene/ui/menu.tscn" id="5_sd0yl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cpfd"]
@@ -20,11 +21,40 @@ animations = [{
 "name": &"off",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_67d6c")
+}],
 "loop": true,
 "name": &"on",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_cpbkx"]
+interpolation_mode = 2
+colors = PackedColorArray(6.64204e-06, 0.8071, 0.403629, 1, 0, 0.822418, 0.747525, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yfftc"]
+gradient = SubResource("Gradient_cpbkx")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.507853, 0.528796)
+fill_to = Vector2(0.874346, 0.162304)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipif3"]
+
+[sub_resource type="Gradient" id="Gradient_08s7j"]
+offsets = PackedFloat32Array(0, 0.566265)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.858824)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8m2c7"]
+gradient = SubResource("Gradient_08s7j")
+
+[sub_resource type="Gradient" id="Gradient_bi04g"]
+offsets = PackedFloat32Array(0.0944882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7fuv5"]
+gradient = SubResource("Gradient_bi04g")
 
 [sub_resource type="Environment" id="Environment_8sjaw"]
 background_mode = 3
@@ -34,14 +64,15 @@ glow_normalized = true
 glow_bloom = 0.1
 glow_blend_mode = 0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_phtrn"]
-polygon = PackedVector2Array(-1344, 0, 19.6964, 0, 1664, 0, 1664, 344, -1344, 344)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sk1l1"]
+polygon = PackedVector2Array(-6.45161, 6.45161, -6.45161, -6.45161, 6.45161, -6.45161, 6.45161, 6.45161)
 
 [node name="hub" type="Node2D"]
 script = ExtResource("1_yxv8c")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="player" parent="." instance=ExtResource("1_ekjvp")]
+visibility_layer = 1
 z_index = 1
 position = Vector2(0, -56)
 
@@ -64,15 +95,47 @@ drag_top_margin = 1.0
 
 [node name="Computer" type="Area2D" parent="."]
 position = Vector2(864, -24)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer"]
 shape = SubResource("CircleShape2D_4cpfd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Computer"]
+[node name="computer" type="AnimatedSprite2D" parent="Computer"]
 position = Vector2(-1.52588e-05, 1.14441e-05)
 scale = Vector2(0.34, 0.34)
 sprite_frames = SubResource("SpriteFrames_sbre4")
 animation = &"off"
+
+[node name="PointLight2D" type="PointLight2D" parent="Computer"]
+scale = Vector2(3.72, 3.72)
+enabled = false
+blend_mode = 2
+shadow_item_cull_mask = 0
+texture = SubResource("GradientTexture2D_yfftc")
+
+[node name="interactive_hitbox" type="Area2D" parent="Computer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer/interactive_hitbox"]
+scale = Vector2(6.56, 6.56)
+shape = SubResource("CircleShape2D_ipif3")
+debug_color = Color(0.721569, 0.34902, 0.831373, 0.419608)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Gradient" type="Sprite2D" parent="Environment"]
+visible = false
+z_index = 1
+position = Vector2(176.726, 160.933)
+rotation = 1.57079
+scale = Vector2(1.25685, 3097.9)
+texture = SubResource("GradientTexture1D_8m2c7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Environment"]
+position = Vector2(130.592, 160.934)
+rotation = 1.57079
+scale = Vector2(5.02741, 46.963)
+blend_mode = 1
+texture = SubResource("GradientTexture2D_7fuv5")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -102,5 +165,10 @@ color = Color(0.286275, 0.32549, 0.407843, 1)
 blend_mode = 2
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(0, 24)
-occluder = SubResource("OccluderPolygon2D_phtrn")
+visible = false
+position = Vector2(864, -24)
+scale = Vector2(3.72, 3.72)
+occluder = SubResource("OccluderPolygon2D_sk1l1")
+
+[connection signal="area_entered" from="Computer" to="." method="_on_computer_area_entered"]
+[connection signal="area_exited" from="Computer" to="." method="_on_computer_area_exited"]
