@@ -18,7 +18,7 @@ var max_jump : int = 1
 var current_jump : int = 0
 
 var can_dash = true
-var dashdir : Vector2
+var dashdir : int
 
 var init = false
 var spawnpoint = Vector2(0,0)
@@ -60,12 +60,12 @@ func input():
 	
 	#dash
 	if input_dir == 1:
-		dashdir = Vector2(1,0)
+		dashdir = 1
 	elif input_dir == -1:
-		dashdir = Vector2(-1,0)
+		dashdir = -1
 	
 	if input_dash and can_dash:
-		velocity = dashdir.normalized() * dash_speed
+		velocity.x = move_toward(velocity.x, dashdir * dash_speed,dash_speed/1.5)
 		can_dash = false
 	
 	#misc
@@ -102,7 +102,14 @@ func _physics_process(delta):
 		input()
 		if not is_on_floor():
 			velocity.y += gravity * delta
+		if !Global.is_on_zipline:
+			$character.stop
+		else:
+			$character.play("jump")
 		move_and_slide()
+
+func start_zipline(zipline):
+	zipline.start_zipline(self)
 
 #func animation
 func turn_1():

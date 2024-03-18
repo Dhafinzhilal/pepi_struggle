@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Pepi Struggle"
-run/main_scene="res://scene/level/hub.tscn"
+config/version="0.0.1"
+run/main_scene="res://scene/level/level1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,6 +29,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Pepi Struggle"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/linepath2d/plugin.cfg")
 
 [input]
 

@@ -28,7 +28,7 @@ func _process(delta):
 	global_position = get_global_mouse_position()
 	Global.current_layertile = layertile_id
 	
-	#this condition for placement any object
+	#this condition for placement any object (remember lol)
 	if !Global.place_tile:
 		#this condition for placing item into level
 		if !Global.filesystem_shown:

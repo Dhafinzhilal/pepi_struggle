@@ -11,3 +11,5 @@ func _ready():
 		#$Collide.visible = true
 	#else:
 		#$Collide.visible = false
+	
+	
