@@ -8,4 +8,6 @@ var is_tile_scene = 0
 var in_menu = false
 var is_on_zipline = false
 
+var phase = 0
+
 var filesystem_shown = false

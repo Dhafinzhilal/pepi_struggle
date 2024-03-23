@@ -100,10 +100,10 @@ func _physics_process(delta):
 		velocity = Vector2(0,0)
 	else:
 		input()
-		if not is_on_floor():
-			velocity.y += gravity * delta
 		if !Global.is_on_zipline:
 			$character.stop
+			if not is_on_floor():
+				velocity.y += gravity * delta
 		else:
 			$character.play("jump")
 		move_and_slide()
@@ -126,3 +126,5 @@ func turn_2():
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
+
+

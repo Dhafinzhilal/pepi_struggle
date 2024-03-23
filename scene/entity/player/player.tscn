@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch5mfk6gkhhpc"]
+[gd_scene load_steps=13 format=3 uid="uid://ch5mfk6gkhhpc"]
 
 [ext_resource type="Texture2D" uid="uid://b6f11xavin4g7" path="res://assets/entities/player/Stand.png" id="1_7co6t"]
 [ext_resource type="Script" path="res://script/playerchar/player.gd" id="1_tg0wo"]
@@ -55,9 +55,16 @@ height = 145.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvmqc"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ku47n"]
+radius = 16.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3ai6"]
+
 [node name="player" type="CharacterBody2D"]
 visibility_layer = 7
 script = ExtResource("1_tg0wo")
+metadata/_edit_group_ = true
 
 [node name="character" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -80,5 +87,18 @@ position = Vector2(0, -14)
 scale = Vector2(5.68, 5.68)
 shape = SubResource("CircleShape2D_pvmqc")
 debug_color = Color(0.65098, 0.517647, 0.121569, 0.419608)
+
+[node name="player_thing" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_thing"]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_ku47n")
+debug_color = Color(0.623529, 0.486275, 0.603922, 0.419608)
+
+[node name="head" type="Area2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
+shape = SubResource("CircleShape2D_v3ai6")
 
 [connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

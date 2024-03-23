@@ -61,7 +61,6 @@ script = ExtResource("1_8ajuc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
-visible = false
 
 [node name="PanelMenu" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8
@@ -203,12 +202,6 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_kbi4a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jxwxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y03po")
 text = "Exit Games"
-
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-bus = &"music"
-
-[node name="sound_effect" type="AudioStreamPlayer2D" parent="."]
-bus = &"sfx"
 
 [connection signal="toggled" from="CanvasLayer/PanelMenu/Settings/FullScreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="CanvasLayer/PanelMenu/Panel/MainMenu/Exit Game" to="." method="_on_exit_game_pressed"]

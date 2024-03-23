@@ -13,7 +13,6 @@ var progress: float = 0.0
 func _ready():
 	set_physics_process(false)
 	pass
-	
 
 func _draw():
 	draw_line(startrope,endrope,rope_color,rope_width,true)

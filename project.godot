@@ -14,11 +14,14 @@ config/name="Pepi Struggle"
 config/version="0.0.1"
 run/main_scene="res://scene/level/level1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://assets/MELONKOLIK.png"
+config/icon="res://assets/kys.png"
 
 [autoload]
 
 Global="*res://script/autoloads/global.gd"
+Music="*res://scene/ui/music.tscn"
 
 [display]
 
@@ -32,7 +35,7 @@ project/assembly_name="Pepi Struggle"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/linepath2d/plugin.cfg")
+enabled=PackedStringArray("res://addons/TweenSuite/plugin.cfg", "res://addons/linepath2d/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

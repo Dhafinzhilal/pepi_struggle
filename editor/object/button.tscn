@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmnnn6e5gfg8j"]
+
+[ext_resource type="Script" path="res://script/gameplay/button.gd" id="1_hqy8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k8ku"]
+size = Vector2(32, 32)
+
+[node name="Button" type="Area2D"]
+script = ExtResource("1_hqy8i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8k8ku")
+debug_color = Color(0.776471, 0.137255, 1, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
