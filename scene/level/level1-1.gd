@@ -15,7 +15,10 @@ func _ready():
 	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	Global.playing = true
 	Global.phase = 2
+	Global.is_on_zipline = false
 	Music.play()
+	$Interactive/water/tween_kinda_suck_tbh.play("move_water")
+	$Interactive/water/tween_kinda_suck_tbh.seek(0)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,10 +27,22 @@ func _process(delta):
 	time -= time_delay
 	time = max(0, time)
 	print("Time is: ", time)
-	$Interactive/water/tween_kinda_suck_tbh.play("move_water")
 	pass
 
 func _on_water_area_entered(area):
 	if head_player == area:
 		get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+func _on_button_button_pressed():
+	var pattern = $TileMap.tile_set.get_pattern(4)
+	var pattern2 = $TileMap.tile_set.get_pattern(5)
+	$TileMap.set_pattern(0,Vector2i(250,-362),pattern)
+	$TileMap.set_pattern(1,Vector2i(250,-362),pattern2)
+	pass # Replace with function body.
+
+
+func _on_button_2_button_pressed():
+	await get_tree().create_timer(2.1).timeout
+	$TileMap.set_cell(0,Vector2i(372,-414),-1,Vector2i(-1,-1))
 	pass # Replace with function body.

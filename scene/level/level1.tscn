@@ -268,7 +268,7 @@ editor_draw_limits = true
 script = ExtResource("3_laphh")
 
 [node name="CameraP1" type="Node2D" parent="CameraManipulation"]
-position = Vector2(-23.1206, -198)
+position = Vector2(-23.1047, -198)
 script = ExtResource("4_s70xx")
 priority_override = false
 priority = 0
