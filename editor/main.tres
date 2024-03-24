@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://d3wie2ar27uq8"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://d3wie2ar27uq8"]
 
 [ext_resource type="PackedScene" uid="uid://br5svd66cwdxu" path="res://editor/items/Tile/square.tscn" id="3_4jewy"]
 [ext_resource type="PackedScene" uid="uid://bwblspsikkfbe" path="res://editor/items/Tile/passablesquare.tscn" id="5_g3jc2"]
@@ -21,6 +21,9 @@ tile_data = PackedInt32Array(0, 12, 65536, 65536, 12, 65536, 131072, 12, 65536, 
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_qvnhe"]
 tile_data = PackedInt32Array(0, 10, 0, 65536, 10, 0, 131072, 10, 0, 196608, 10, 0, 262144, 10, 0, 327680, 10, 0, 393216, 10, 0, 458752, 10, 0, 524288, 10, 0, 589824, 10, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_q67kj"]
+tile_data = PackedInt32Array(0, 65550, 5, 65536, 65550, 5, 131072, 65550, 5, 196608, 65550, 5, 262144, 65550, 5, 327680, 65550, 5, 393216, 65550, 5, 1, 65550, 5, 2, 65550, 5, 3, 65550, 5, 4, 65550, 5, 5, 65550, 5, 6, 65550, 5, 7, 65550, 5, 8, 65550, 5, 9, 65550, 5, 10, 65550, 5, 11, 65550, 5, 12, 65550, 5, 13, 65550, 5, 14, 65550, 5, 65550, 65550, 5, 131086, 65550, 5, 196622, 65550, 5, 262158, 65550, 5, 327694, 65550, 5, 393230, 65550, 5, 15, 14, 4, 65551, 12, 65536, 131087, 12, 65536)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_phkeb"]
 resource_name = "passableblock"
@@ -94,9 +97,13 @@ texture_region_size = Vector2i(32, 32)
 5:2/0 = 0
 5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.76777, -3.18198, 16, -3.18198, 16, 1.94454, 1.76777, 1.94454)
+5:2/0/physics_layer_0/polygon_0/one_way = true
 6:2/0 = 0
 6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:2/0/physics_layer_0/angular_velocity = 0.0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -3.18198, -1.59099, -3.00521, -1.06066, 1.94454, -16, 1.94454)
+6:2/0/physics_layer_0/polygon_0/one_way = true
 0:3/animation_columns = 4
 0:3/animation_speed = 8.0
 0:3/animation_frame_0/duration = 1.0
@@ -119,6 +126,7 @@ texture_region_size = Vector2i(32, 32)
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -8.25, -16, -8)
+0:4/0/physics_layer_0/polygon_0/one_way = true
 1:4/0 = 0
 1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:4/0/physics_layer_0/angular_velocity = 0.0
@@ -300,7 +308,7 @@ scenes/1/scene = ExtResource("3_4jewy")
 [resource]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 sources/3 = SubResource("TileSetScenesCollectionSource_mtbg5")
 sources/12 = SubResource("TileSetScenesCollectionSource_phkeb")
 sources/14 = SubResource("TileSetAtlasSource_yp2q6")
@@ -310,3 +318,4 @@ pattern_2 = SubResource("TileMapPattern_78tyg")
 pattern_3 = SubResource("TileMapPattern_gy6fh")
 pattern_4 = SubResource("TileMapPattern_di14g")
 pattern_5 = SubResource("TileMapPattern_qvnhe")
+pattern_6 = SubResource("TileMapPattern_q67kj")

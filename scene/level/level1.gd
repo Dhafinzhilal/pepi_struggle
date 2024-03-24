@@ -17,6 +17,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("o"):
 		Global.playing = !Global.playing
+	
 	pass
 
 func _on_button_button_pressed():
@@ -28,7 +29,7 @@ func _on_button_button_pressed():
 
 
 func _on_button_2_button_pressed():
-	var pattern = $TileMap.tile_set.get_pattern(3)
+	var pattern = $TileMap.tile_set.get_pattern(6)
 	$Interactive/Button2/sprite.play("active")
 	$TileMap.set_pattern(0,Vector2i(149,-42),pattern)
 	pass # Replace with function body.
