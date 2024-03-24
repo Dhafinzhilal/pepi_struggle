@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://deh01p8h5lbmd"]
+
+[ext_resource type="Texture2D" uid="uid://dth8vyqabsj6" path="res://assets/entities/lantern/lantern 1.png" id="1_gd3cn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3l7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gd3cn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lantern" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.8147e-06, 4.76837e-07)
+scale = Vector2(0.953125, 1)
+sprite_frames = SubResource("SpriteFrames_l3l7i")
