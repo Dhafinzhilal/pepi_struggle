@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c77npili4pel4"
-path="res://.godot/imported/level_spritesheet.png-26a44dd21a040a5480d5ccba54377d99.ctex"
+uid="uid://bhbrwi41rukrv"
+path="res://.godot/imported/tileset 256x256.png-028e27bae5810dd4f0a82427f584bf8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/phantom_camera/examples/textures/2D/level_spritesheet.png"
-dest_files=["res://.godot/imported/level_spritesheet.png-26a44dd21a040a5480d5ccba54377d99.ctex"]
+source_file="res://assets/blocks/tileset 256x256.png"
+dest_files=["res://.godot/imported/tileset 256x256.png-028e27bae5810dd4f0a82427f584bf8e.ctex"]
 
 [params]
 

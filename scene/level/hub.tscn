@@ -138,7 +138,7 @@ scale = Vector2(5.02741, 46.963)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_7fuv5")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="32x32" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = ExtResource("2_7goak")
 format = 2
