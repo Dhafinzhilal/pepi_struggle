@@ -61,6 +61,7 @@ script = ExtResource("1_8ajuc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
+visible = false
 
 [node name="PanelMenu" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8
