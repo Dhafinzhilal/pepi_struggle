@@ -63,6 +63,7 @@ script = ExtResource("1_8ajuc")
 layer = 128
 
 [node name="PanelMenu" type="Panel" parent="CanvasLayer"]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -204,4 +205,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_y03po")
 text = "Exit Games"
 
 [connection signal="toggled" from="CanvasLayer/PanelMenu/Settings/FullScreen/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="CanvasLayer/PanelMenu/Panel/MainMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelMenu/Panel/MainMenu/Back to Hub" to="." method="_on_back_to_hub_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelMenu/Panel/MainMenu/Exit Game" to="." method="_on_exit_game_pressed"]

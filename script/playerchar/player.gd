@@ -9,9 +9,12 @@ class_name player
 @export var health : int = 3
 @export var gravity : float = 1000.0
 
+
 var accel : float = 25.0
 
 @onready var timer_dash = $Dash_cooldown
+@onready var particle = $particle_
+@onready var particle2 = $particle_1
 var tween : Tween
 
 var max_jump : int = 1
@@ -23,6 +26,11 @@ var dashdir : int
 var init = false
 var spawnpoint = Vector2(0,0)
 var player_point = false
+
+var light_on = false
+
+func _ready():
+	$TileMap.visible = false
 
 #function input
 func input():
@@ -65,10 +73,14 @@ func input():
 		dashdir = -1
 	
 	if input_dash and can_dash:
-		velocity.x = move_toward(velocity.x, dashdir * dash_speed,dash_speed/1.5)
-		can_dash = false
+		dash()
+			
 	
 	#misc
+	if Input.is_action_just_pressed("tab"):
+		light_on = !light_on
+		pass
+	
 	if !is_on_floor() and velocity.y > 0:
 		$character.play("fall")
 		
@@ -89,6 +101,19 @@ func input():
 
 	return input_dir
 
+func visual_char():
+	var input_dir = Input.get_axis("a","d")
+	
+	if input_dir == 1:
+		$character.flip_h = false
+		#$item_hand/items_player/AnimatedSprite2D.flip_v = false
+		#turn_2()
+	elif input_dir == -1:
+		$character.flip_h = true
+		#$item_hand/items_player/AnimatedSprite2D.flip_v = true
+		#turn_1()
+	pass
+
 #function physic
 func _physics_process(delta):
 	if !init:
@@ -99,17 +124,22 @@ func _physics_process(delta):
 		global_position = spawnpoint
 		velocity = Vector2(0,0)
 	else:
-		input()
+		if !light_on:
+			$TileMap.visible = false
+		else:
+			$TileMap.visible = true
 		if !Global.is_on_zipline:
 			$character.stop
+			input()
+			particle.emitting = false
 			if not is_on_floor():
 				velocity.y += gravity * delta
 		else:
+			visual_char()
+			particle.emitting = true
 			$character.play("jump")
 		move_and_slide()
 
-func start_zipline(zipline):
-	zipline.start_zipline(self)
 
 #func animation
 func turn_1():
@@ -124,7 +154,16 @@ func turn_2():
 	tween = create_tween()
 	tween.tween_property($item_hand,"rotation_degrees",0,0.1)
 
+func dash():
+	velocity.x = move_toward(velocity.x, dashdir * dash_speed,dash_speed/1.5)
+	timer_dash.start()
+	particle2.emitting = true
+	$particle_timer.start()
+	can_dash = false
+
 func _on_dash_cooldown_timeout():
 	can_dash = true
 
-
+func _on_particle_timer_timeout():
+	particle2.emitting = false
+	pass # Replace with function body.

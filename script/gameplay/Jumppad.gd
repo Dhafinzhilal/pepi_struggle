@@ -14,5 +14,10 @@ func _physics_process(delta):
 
 func _on_hitbox_body_entered(body):
 	if playerchar == body:
+		$hitbox/AnimatedSprite2D.play('squish')
 		playerchar.velocity.y = -jump_height
 	pass # Replace with function body.
+
+
+func _on_AnimatedSprite_animation_finished():
+	$hitbox/AnimatedSprite2D.play('default')

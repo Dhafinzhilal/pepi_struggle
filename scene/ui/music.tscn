@@ -1,7 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://brifxpbrl8gxm"]
-
-[ext_resource type="AudioStream" uid="uid://te0lksm6n5ej" path="res://sound/music/bossarnoa_9.mp3" id="1_s4i7a"]
+[gd_scene format=3 uid="uid://brifxpbrl8gxm"]
 
 [node name="music" type="AudioStreamPlayer"]
-stream = ExtResource("1_s4i7a")
+process_mode = 1
 bus = &"music"

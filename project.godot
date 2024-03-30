@@ -11,17 +11,19 @@ config_version=5
 [application]
 
 config/name="Pepi Struggle"
-config/version="0.0.1"
-run/main_scene="res://scene/level/level1-1.tscn"
+config/version="0.8.0"
+run/main_scene="res://scene/level/hub.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://assets/MELONKOLIK.png"
-config/icon="res://assets/kys.png"
+config/icon="res://assets/icon/Pepi Struggle.png"
 
 [autoload]
 
 Global="*res://script/autoloads/global.gd"
 Music="*res://scene/ui/music.tscn"
+Menu="*res://scene/ui/menu.tscn"
+LayerTransition="*res://scene/ui/layer_transition.tscn"
 
 [display]
 
@@ -32,6 +34,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Pepi Struggle"
+
+[editor]
+
+export/version="0.8.0"
 
 [editor_plugins]
 
@@ -112,11 +118,17 @@ space={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
 ]
 }
+tab={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0470588, 0.0666667, 0.0980392, 1)
 viewport/hdr_2d=true
 renderer/defaults/default_clear_color=Color(1, 1, 1, 1)
 

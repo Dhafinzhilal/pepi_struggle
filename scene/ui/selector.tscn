@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://ioyhwxwok5n1"]
+
+[ext_resource type="Script" path="res://script/menu/selector.gd" id="1_t4jhp"]
+[ext_resource type="FontFile" uid="uid://dv7knpgvw8dei" path="res://font/Gabarito-VariableFont_wght.ttf" id="2_nylgh"]
+[ext_resource type="Texture2D" uid="uid://cr3xt8orkbha3" path="res://assets/another_placeholder/WASD.png" id="3_pu2m3"]
+[ext_resource type="Texture2D" uid="uid://bw00fw1j1dyql" path="res://assets/another_placeholder/shift.png" id="4_ri1jm"]
+[ext_resource type="Texture2D" uid="uid://cb8b6p5a703ue" path="res://assets/another_placeholder/spacebar.png" id="5_stxkp"]
+[ext_resource type="Texture2D" uid="uid://o7uuoy4m0g6s" path="res://assets/another_placeholder/tab.png" id="6_5hxxx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ch5e"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 32
+border_width_top = 32
+border_width_right = 32
+border_width_bottom = 32
+border_color = Color(0.423529, 0.423529, 0.423529, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1aw2x"]
+font = ExtResource("2_nylgh")
+font_size = 30
+font_color = Color(0, 0.984314, 0.411765, 1)
+shadow_size = 16
+shadow_color = Color(0, 0.960784, 0.807843, 0.0941176)
+
+[node name="Selector" type="Control"]
+light_mask = 0
+visibility_layer = 1048575
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t4jhp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Level Selction" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.5
+offset_top = -243.0
+offset_right = 454.5
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ch5e")
+
+[node name="Label" type="Label" parent="CanvasLayer/Level Selction"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -140.0
+offset_right = 243.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_nylgh")
+text = "This section should be Level Selector.
+But we aren't done yet..."
+label_settings = SubResource("LabelSettings_1aw2x")
+horizontal_alignment = 1
+
+[node name="wasd" type="Sprite2D" parent="CanvasLayer/Level Selction"]
+position = Vector2(174.9, 189.4)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_pu2m3")
+
+[node name="Shift" type="Sprite2D" parent="CanvasLayer/Level Selction"]
+position = Vector2(379.9, 190.4)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ri1jm")
+
+[node name="Spacebar" type="Sprite2D" parent="CanvasLayer/Level Selction"]
+position = Vector2(571.9, 191.4)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_stxkp")
+
+[node name="Tab" type="Sprite2D" parent="CanvasLayer/Level Selction"]
+position = Vector2(748.9, 199.4)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_5hxxx")

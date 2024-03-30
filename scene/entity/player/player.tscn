@@ -1,21 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://ch5mfk6gkhhpc"]
+[gd_scene load_steps=16 format=3 uid="uid://ch5mfk6gkhhpc"]
 
 [ext_resource type="Texture2D" uid="uid://b6f11xavin4g7" path="res://assets/entities/player/Stand.png" id="1_7co6t"]
 [ext_resource type="Script" path="res://script/playerchar/player.gd" id="1_tg0wo"]
-[ext_resource type="Texture2D" uid="uid://dagrcpmm3d0un" path="res://assets/entities/player/Stand1.png" id="2_inrps"]
 [ext_resource type="Texture2D" uid="uid://873djsxeas07" path="res://assets/entities/player/Fall.png" id="4_topq2"]
 [ext_resource type="Texture2D" uid="uid://buv2to3g011i" path="res://assets/entities/player/Jump.png" id="5_l1dn8"]
 [ext_resource type="Texture2D" uid="uid://cdbnbvnipmqys" path="res://assets/entities/player/Walk.png" id="6_ydjso"]
 [ext_resource type="Texture2D" uid="uid://beyimc6xagryk" path="res://assets/entities/player/Walk2.png" id="7_eghwy"]
+[ext_resource type="TileSet" uid="uid://85ldki516ukn" path="res://editor/main2.tres" id="8_34mq1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_osf56"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_7co6t")
-}, {
-"duration": 1.5,
-"texture": ExtResource("2_inrps")
 }],
 "loop": true,
 "name": &"default",
@@ -61,6 +58,27 @@ height = 60.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3ai6"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ssn0"]
+particle_flag_disable_z = true
+angle_max = 120.0
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 12.0
+
+[sub_resource type="Gradient" id="Gradient_xfvqp"]
+offsets = PackedFloat32Array(0.0324675, 0.428571)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vu4pa"]
+gradient = SubResource("Gradient_xfvqp")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.513761, 0.504587)
+fill_to = Vector2(0.972477, 0)
+
 [node name="player" type="CharacterBody2D"]
 visibility_layer = 7
 script = ExtResource("1_tg0wo")
@@ -69,6 +87,7 @@ metadata/_edit_group_ = true
 [node name="character" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_osf56")
+frame_progress = 0.49125
 
 [node name="hitbox_player" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17)
@@ -77,8 +96,12 @@ shape = SubResource("CapsuleShape2D_aot7x")
 
 [node name="Dash_cooldown" type="Timer" parent="."]
 process_callback = 0
-wait_time = 1.5
-autostart = true
+wait_time = 1.2
+one_shot = true
+
+[node name="particle_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="interactive_hitbox" type="Area2D" parent="."]
 
@@ -101,4 +124,28 @@ position = Vector2(0, -16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
 shape = SubResource("CircleShape2D_v3ai6")
 
+[node name="particle_" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_5ssn0")
+
+[node name="particle_1" type="GPUParticles2D" parent="."]
+position = Vector2(0, 45)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_5ssn0")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(16, 0)
+tile_set = ExtResource("8_34mq1")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65537, 14, 3)
+
+[node name="lantern" type="PointLight2D" parent="TileMap"]
+position = Vector2(-16, -45)
+scale = Vector2(28.6875, 28.6875)
+color = Color(0.870588, 0.596078, 0.196078, 1)
+texture = SubResource("GradientTexture2D_vu4pa")
+
 [connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="particle_timer" to="." method="_on_particle_timer_timeout"]
